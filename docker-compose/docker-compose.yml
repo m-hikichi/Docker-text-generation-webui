@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  text-generation-webui:
+    build:
+      context: ../Dockerfile
+      dockerfile: Dockerfile
+    image: text-generation-webui:snapshot-2024-04-28
+    container_name: text-generation-webui
+    volumes:
+      - ../models:/workspace/text-generation-webui/models
+    working_dir: /workspace/text-generation-webui
+    tty: true
+    ports:
+      - 7860:7860
+      - 5000:5000
+    entrypoint: sh -c "python server.py --model /workspace/text-generation-webui/models/Qwen2-7B-Instruct/ --n-gpu-layers -1 --n_ctx 2048 --multi-user --chat-buttons --listen --api"
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
