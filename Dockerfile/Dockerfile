@@ -4,7 +4,6 @@ RUN apt update
 RUN apt install -y git
 
 WORKDIR /workspace
-RUN git clone https://github.com/oobabooga/text-generation-webui.git -b snapshot-2024-04-28
+RUN git clone https://github.com/oobabooga/text-generation-webui.git -b v1.9.1
 WORKDIR /workspace/text-generation-webui
 RUN pip install -r requirements.txt
-RUN pip uninstall -y flash-attn

@@ -5,7 +5,7 @@ services:
     build:
       context: ../Dockerfile
       dockerfile: Dockerfile
-    image: text-generation-webui:snapshot-2024-04-28
+    image: text-generation-webui:v1.9.1
     container_name: text-generation-webui
     volumes:
       - ../models:/workspace/text-generation-webui/models
@@ -14,7 +14,7 @@ services:
     ports:
       - 7860:7860
       - 5000:5000
-    entrypoint: sh -c "python server.py --model /workspace/text-generation-webui/models/Qwen2-7B-Instruct/ --n-gpu-layers -1 --n_ctx 2048 --multi-user --chat-buttons --listen --api"
+    entrypoint: sh -c "python server.py --model /workspace/text-generation-webui/models/Llama-3-ELYZA-JP-8B-GGUF --n-gpu-layers -1 --n_ctx 2048 --multi-user --chat-buttons --listen --api"
 
     deploy:
       resources:
