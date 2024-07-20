@@ -5,7 +5,7 @@ services:
     build:
       context: ../Dockerfile
       dockerfile: Dockerfile
-    image: text-generation-webui:v1.9.1
+    image: text-generation-webui:v1.10.1
     container_name: text-generation-webui
     volumes:
       - ../models:/workspace/text-generation-webui/models

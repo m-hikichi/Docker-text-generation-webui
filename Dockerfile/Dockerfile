@@ -4,6 +4,6 @@ RUN apt update
 RUN apt install -y git
 
 WORKDIR /workspace
-RUN git clone https://github.com/oobabooga/text-generation-webui.git -b v1.9.1
+RUN git clone https://github.com/oobabooga/text-generation-webui.git -b v1.10.1
 WORKDIR /workspace/text-generation-webui
 RUN pip install -r requirements.txt
